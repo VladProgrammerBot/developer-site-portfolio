@@ -75,22 +75,22 @@ const App: React.FC = () => {
   const skills: Skill[] = [
     {
       category: "Frontend",
-      items: ["React", "Vue.js", "TypeScript", "Next.js", "Tailwind CSS", "Three.js"],
+      items: ["React.js", "Tailwind CSS", "TypeScript", "Zustand"],
       color: "cyan"
     },
     {
       category: "Backend",
-      items: ["Node.js", "Python", "Go", "PostgreSQL", "MongoDB", "Redis"],
+      items: ["Node.js", "Express.js"],
       color: "orange"
     },
     {
-      category: "DevOps",
-      items: ["Docker", "Kubernetes", "AWS", "CI/CD", "Terraform", "Linux"],
+      category: "Infrastructure",
+      items: ["PostgreSQL", "Redis", "Render", "Neon", "Redis Cloud"],
       color: "emerald"
     },
     {
       category: "Tools",
-      items: ["Git", "GraphQL", "REST APIs", "Microservices", "WebSockets", "Testing"],
+      items: ["Git", "GitHub"],
       color: "violet"
     }
   ];
