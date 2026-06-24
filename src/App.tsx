@@ -72,53 +72,106 @@ const App: React.FC = () => {
     setFormData({ name: "", email: "", message: "" });
   };
 
-  // test comment
   const projects: Project[] = [
     {
       id: 1,
-      title: "Knowledge Management System", // Замість "Strukt" — чіткий тип програми
+      title: "Knowledge Base App",
       description:
-        "A minimalist tool for networked server-side storage of text information, featuring user authentication and word-based search.",
-      tech: [
-        "TypeScript",
-        "React",
-        "Node.js",
-        "PostgreSQL",
-        "Tailwind CSS",
-        "Express",
-        "Redis",
-      ],
-      gradient: "from-zinc-800 via-slate-900 to-black",
-      link: "https://strukt.onrender.com",
-      github: "https://github.com/VladProgrammerBot/Strukt"
+        "A web application for storing text information that is easy to navigate regardless of scale.",
+      tech: ["TypeScript", "React", "Tailwind CSS", "Zustand", "Vite", "PostgreSQL", "Redis", "Express"],
+      gradient: "from-slate-800 via-zinc-900 to-black",
+      link: "https://github.com/VladProgrammerBot/knowledge-base-app",
+      github: "https://github.com/VladProgrammerBot/knowledge-base-app",
     },
     {
       id: 2,
-      title: "Real-time multiplayer ball game",
+      title: "Developer Portfolio",
       description:
-        "A real-time multiplayer ball game with WebSocket-based communication and game state synchronization",
-      tech: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "Socket.io"],
+        "A modern personal portfolio built with React, TypeScript, Vite, and Tailwind CSS.",
+      tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
       gradient: "from-cyan-500 via-blue-500 to-purple-600",
-      link: "https://drift-game.onrender.com",
-      github: "https://github.com/VladProgrammerBot/Drift-game"
+      link: "https://github.com/VladProgrammerBot/developer-site-portfolio",
+      github: "https://github.com/VladProgrammerBot/developer-site-portfolio",
     },
     {
       id: 3,
-      title: "AI Analytics Dashboard",
+      title: "Aliases Creator Script",
       description:
-        "Real-time data visualization platform with machine learning insights and predictive models",
-      tech: ["Next.js", "Python", "TensorFlow", "MongoDB"],
-      gradient: "from-orange-500 via-red-500 to-pink-600",
-      link: "#",
+        "Linux tool to create aliases fast by command like this: ca dev \"npm run dev\".",
+      tech: ["Shell"],
+      gradient: "from-emerald-500 via-lime-500 to-cyan-500",
+      link: "https://github.com/VladProgrammerBot/aliases-creator-script",
+      github: "https://github.com/VladProgrammerBot/aliases-creator-script",
     },
     {
       id: 4,
-      title: "Cloud Infrastructure Manager",
+      title: "Fast Linux Translator",
       description:
-        "Multi-cloud orchestration tool with automated deployment and cost optimization",
-      tech: ["TypeScript", "Go", "Kubernetes", "AWS"],
+        "A lightweight native desktop translation utility for Linux that leverages translate-shell and zenity for instant system-wide translations.",
+      tech: ["Shell"],
+      gradient: "from-orange-500 via-red-500 to-pink-600",
+      link: "https://github.com/VladProgrammerBot/fast-linux-translator",
+      github: "https://github.com/VladProgrammerBot/fast-linux-translator",
+    },
+    {
+      id: 5,
+      title: "Pi Calculation Script",
+      description:
+        "A JavaScript algorithm that computes π from zero.",
+      tech: ["HTML", "JavaScript"],
+      gradient: "from-slate-500 via-stone-500 to-zinc-700",
+      link: "https://github.com/VladProgrammerBot/pi-calculation-script",
+      github: "https://github.com/VladProgrammerBot/pi-calculation-script",
+    },
+    {
+      id: 6,
+      title: "Instagram Clone",
+      description:
+        "A modern social media application built with React, TypeScript, Redux Toolkit, and Tailwind CSS, featuring full CRUD operations.",
+      tech: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS"],
+      gradient: "from-pink-500 via-fuchsia-500 to-violet-600",
+      link: "https://github.com/VladProgrammerBot/instagram-clone",
+      github: "https://github.com/VladProgrammerBot/instagram-clone",
+    },
+    {
+      id: 7,
+      title: "E-commerce Platform",
+      description:
+        "A modern content-rich administration dashboard built with Astro, React, and Tailwind CSS for managing multi-level product catalogs.",
+      tech: ["Astro", "React", "Tailwind CSS", "TypeScript"],
+      gradient: "from-amber-500 via-orange-500 to-rose-500",
+      link: "https://github.com/VladProgrammerBot/e-commerce-platform",
+      github: "https://github.com/VladProgrammerBot/e-commerce-platform",
+    },
+    {
+      id: 8,
+      title: "Knowledge Management Desktop App",
+      description:
+        "Minimalist network-structured knowledge management and note organization application with a keyboard-driven interface.",
+      tech: ["TypeScript"],
       gradient: "from-emerald-500 via-teal-500 to-cyan-600",
-      link: "#",
+      link: "https://github.com/VladProgrammerBot/knowledge-management-desktop-app",
+      github: "https://github.com/VladProgrammerBot/knowledge-management-desktop-app",
+    },
+    {
+      id: 9,
+      title: "Weather App",
+      description:
+        "A modern React weather dashboard built with SCSS and WeatherAPI for real-time weather monitoring and hourly forecasts.",
+      tech: ["React", "JavaScript", "SCSS"],
+      gradient: "from-sky-500 via-blue-500 to-indigo-600",
+      link: "https://github.com/VladProgrammerBot/weather-app",
+      github: "https://github.com/VladProgrammerBot/weather-app",
+    },
+    {
+      id: 10,
+      title: "Multiplayer Physics Ball",
+      description:
+        "A minimalist high-speed multiplayer maze game built with HTML5 Canvas, Node.js, Express, and Socket.io.",
+      tech: ["HTML5 Canvas", "Node.js", "Express", "Socket.io"],
+      gradient: "from-cyan-500 via-slate-500 to-blue-700",
+      link: "https://github.com/VladProgrammerBot/multiplayer-physics-ball",
+      github: "https://github.com/VladProgrammerBot/multiplayer-physics-ball",
     },
   ];
 
