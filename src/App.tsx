@@ -85,6 +85,36 @@ const App: React.FC = () => {
     },
     {
       id: 2,
+      title: "Weather App",
+      description:
+        "A modern React weather dashboard built with SCSS and WeatherAPI for real-time weather monitoring and hourly forecasts.",
+      tech: ["React", "JavaScript", "SCSS"],
+      gradient: "from-sky-500 via-blue-500 to-indigo-600",
+      link: "https://github.com/VladProgrammerBot/weather-app",
+      github: "https://github.com/VladProgrammerBot/weather-app",
+    },
+    {
+      id: 3,
+      title: "Multiplayer Physics Ball",
+      description:
+        "A minimalist high-speed real-time multiplayer maze game",
+      tech: ["HTML5 Canvas", "Node.js", "Express", "Socket.io"],
+      gradient: "from-cyan-500 via-slate-500 to-blue-700",
+      link: "https://github.com/VladProgrammerBot/multiplayer-physics-ball",
+      github: "https://github.com/VladProgrammerBot/multiplayer-physics-ball",
+    },
+    {
+      id: 4,
+      title: "E-commerce Platform",
+      description:
+        "A modern content-rich administration dashboard built with Astro, React, and Tailwind CSS for managing multi-level product catalogs.",
+      tech: ["Astro", "React", "Tailwind CSS", "TypeScript"],
+      gradient: "from-amber-500 via-orange-500 to-rose-500",
+      link: "https://github.com/VladProgrammerBot/e-commerce-platform",
+      github: "https://github.com/VladProgrammerBot/e-commerce-platform",
+    },
+    {
+      id: 5,
       title: "Developer Portfolio",
       description:
         "A modern personal portfolio built with React, TypeScript, Vite, and Tailwind CSS.",
@@ -92,36 +122,6 @@ const App: React.FC = () => {
       gradient: "from-cyan-500 via-blue-500 to-purple-600",
       link: "https://github.com/VladProgrammerBot/developer-site-portfolio",
       github: "https://github.com/VladProgrammerBot/developer-site-portfolio",
-    },
-    {
-      id: 3,
-      title: "Aliases Creator Script",
-      description:
-        "Linux tool to create aliases fast by command like this: ca dev \"npm run dev\".",
-      tech: ["Shell"],
-      gradient: "from-emerald-500 via-lime-500 to-cyan-500",
-      link: "https://github.com/VladProgrammerBot/aliases-creator-script",
-      github: "https://github.com/VladProgrammerBot/aliases-creator-script",
-    },
-    {
-      id: 4,
-      title: "Fast Linux Translator",
-      description:
-        "A lightweight native desktop translation utility for Linux that leverages translate-shell and zenity for instant system-wide translations.",
-      tech: ["Shell"],
-      gradient: "from-orange-500 via-red-500 to-pink-600",
-      link: "https://github.com/VladProgrammerBot/fast-linux-translator",
-      github: "https://github.com/VladProgrammerBot/fast-linux-translator",
-    },
-    {
-      id: 5,
-      title: "Pi Calculation Script",
-      description:
-        "A JavaScript algorithm that computes π from zero.",
-      tech: ["HTML", "JavaScript"],
-      gradient: "from-slate-500 via-stone-500 to-zinc-700",
-      link: "https://github.com/VladProgrammerBot/pi-calculation-script",
-      github: "https://github.com/VladProgrammerBot/pi-calculation-script",
     },
     {
       id: 6,
@@ -135,16 +135,6 @@ const App: React.FC = () => {
     },
     {
       id: 7,
-      title: "E-commerce Platform",
-      description:
-        "A modern content-rich administration dashboard built with Astro, React, and Tailwind CSS for managing multi-level product catalogs.",
-      tech: ["Astro", "React", "Tailwind CSS", "TypeScript"],
-      gradient: "from-amber-500 via-orange-500 to-rose-500",
-      link: "https://github.com/VladProgrammerBot/e-commerce-platform",
-      github: "https://github.com/VladProgrammerBot/e-commerce-platform",
-    },
-    {
-      id: 8,
       title: "Knowledge Management Desktop App",
       description:
         "Minimalist network-structured knowledge management and note organization application with a keyboard-driven interface.",
@@ -154,24 +144,34 @@ const App: React.FC = () => {
       github: "https://github.com/VladProgrammerBot/knowledge-management-desktop-app",
     },
     {
-      id: 9,
-      title: "Weather App",
+      id: 8,
+      title: "Fast Linux Translator",
       description:
-        "A modern React weather dashboard built with SCSS and WeatherAPI for real-time weather monitoring and hourly forecasts.",
-      tech: ["React", "JavaScript", "SCSS"],
-      gradient: "from-sky-500 via-blue-500 to-indigo-600",
-      link: "https://github.com/VladProgrammerBot/weather-app",
-      github: "https://github.com/VladProgrammerBot/weather-app",
+        "A lightweight native desktop translation utility for Linux that leverages translate-shell and zenity for instant system-wide translations.",
+      tech: ["Shell"],
+      gradient: "from-orange-500 via-red-500 to-pink-600",
+      link: "https://github.com/VladProgrammerBot/fast-linux-translator",
+      github: "https://github.com/VladProgrammerBot/fast-linux-translator",
+    },
+    {
+      id: 9,
+      title: "Aliases Creator Script",
+      description:
+        "Linux tool to create aliases fast by command like this: ca dev \"npm run dev\".",
+      tech: ["Shell"],
+      gradient: "from-emerald-500 via-lime-500 to-cyan-500",
+      link: "https://github.com/VladProgrammerBot/aliases-creator-script",
+      github: "https://github.com/VladProgrammerBot/aliases-creator-script",
     },
     {
       id: 10,
-      title: "Multiplayer Physics Ball",
+      title: "Pi Calculation Script",
       description:
-        "A minimalist high-speed multiplayer maze game built with HTML5 Canvas, Node.js, Express, and Socket.io.",
-      tech: ["HTML5 Canvas", "Node.js", "Express", "Socket.io"],
-      gradient: "from-cyan-500 via-slate-500 to-blue-700",
-      link: "https://github.com/VladProgrammerBot/multiplayer-physics-ball",
-      github: "https://github.com/VladProgrammerBot/multiplayer-physics-ball",
+        "A JavaScript algorithm that computes π from zero.",
+      tech: ["HTML", "JavaScript"],
+      gradient: "from-slate-500 via-stone-500 to-zinc-700",
+      link: "https://github.com/VladProgrammerBot/pi-calculation-script",
+      github: "https://github.com/VladProgrammerBot/pi-calculation-script",
     },
   ];
 
