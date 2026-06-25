@@ -110,11 +110,21 @@ const App: React.FC = () => {
         "A modern content-rich administration dashboard built with Astro, React, and Tailwind CSS for managing multi-level product catalogs.",
       tech: ["Astro", "React", "Tailwind CSS", "TypeScript"],
       gradient: "from-amber-500 via-orange-500 to-rose-500",
-      link: "https://github.com/VladProgrammerBot/e-commerce-platform",
+      // link: "https://github.com/VladProgrammerBot/e-commerce-platform",
       github: "https://github.com/VladProgrammerBot/e-commerce-platform",
     },
-    {
+     {
       id: 5,
+      title: "Top-Maker",
+      description:
+        "A lightweight, elegant, and highly efficient web application designed to help users rank and sort any list of items through intuitive, head-to-head binary choices.",
+      tech: ["HTML5", "СSS3", "JavaScript"],
+      gradient: "from-cyan-500 via-slate-500 to-blue-700",
+      link: "https://vladprogrammerbot.github.io/top-list-creator",
+      github: "https://github.com/VladProgrammerBot/top-list-creator",
+    },
+    {
+      id: 6,
       title: "Developer Portfolio",
       description:
         "A modern personal portfolio built with React, TypeScript, Vite, and Tailwind CSS.",
@@ -124,53 +134,53 @@ const App: React.FC = () => {
       github: "https://github.com/VladProgrammerBot/developer-site-portfolio",
     },
     {
-      id: 6,
+      id: 7,
       title: "Instagram Clone",
       description:
         "A modern social media application built with React, TypeScript, Redux Toolkit, and Tailwind CSS, featuring full CRUD operations.",
       tech: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS"],
       gradient: "from-pink-500 via-fuchsia-500 to-violet-600",
-      link: "https://github.com/VladProgrammerBot/instagram-clone",
+      // link: "https://github.com/VladProgrammerBot/instagram-clone",
       github: "https://github.com/VladProgrammerBot/instagram-clone",
     },
     {
-      id: 7,
+      id: 8,
       title: "Knowledge Management Desktop App",
       description:
         "Minimalist network-structured knowledge management and note organization application with a keyboard-driven interface.",
       tech: ["TypeScript"],
       gradient: "from-emerald-500 via-teal-500 to-cyan-600",
-      link: "https://github.com/VladProgrammerBot/knowledge-management-desktop-app",
+      // link: "https://github.com/VladProgrammerBot/knowledge-management-desktop-app",
       github: "https://github.com/VladProgrammerBot/knowledge-management-desktop-app",
     },
     {
-      id: 8,
+      id: 9,
       title: "Fast Linux Translator",
       description:
         "A lightweight native desktop translation utility for Linux that leverages translate-shell and zenity for instant system-wide translations.",
       tech: ["Shell"],
       gradient: "from-orange-500 via-red-500 to-pink-600",
-      link: "https://github.com/VladProgrammerBot/fast-linux-translator",
+      // link: "https://github.com/VladProgrammerBot/fast-linux-translator",
       github: "https://github.com/VladProgrammerBot/fast-linux-translator",
     },
     {
-      id: 9,
+      id: 10,
       title: "Aliases Creator Script",
       description:
         "Linux tool to create aliases fast by command like this: ca dev \"npm run dev\".",
       tech: ["Shell"],
       gradient: "from-emerald-500 via-lime-500 to-cyan-500",
-      link: "https://github.com/VladProgrammerBot/aliases-creator-script",
+      // link: "https://github.com/VladProgrammerBot/aliases-creator-script",
       github: "https://github.com/VladProgrammerBot/aliases-creator-script",
     },
     {
-      id: 10,
+      id: 11,
       title: "Pi Calculation Script",
       description:
         "A JavaScript algorithm that computes π from zero.",
       tech: ["HTML", "JavaScript"],
       gradient: "from-slate-500 via-stone-500 to-zinc-700",
-      link: "https://github.com/VladProgrammerBot/pi-calculation-script",
+      // link: "https://github.com/VladProgrammerBot/pi-calculation-script",
       github: "https://github.com/VladProgrammerBot/pi-calculation-script",
     },
   ];
@@ -310,11 +320,12 @@ const App: React.FC = () => {
 
                   <div className="flex flex-wrap items-center gap-4 mt-8">
                     {/* Primary Live Project Button */}
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/btn inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold px-5 py-2.5 transition-all duration-300 shadow-lg shadow-cyan-500/10 hover:shadow-cyan-400/30 transform hover:-translate-y-0.5"
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/btn inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold px-5 py-2.5 transition-all duration-300 shadow-lg shadow-cyan-500/10 hover:shadow-cyan-400/30 transform hover:-translate-y-0.5"
                     >
                       <span>View Project</span>
                       <svg
@@ -331,7 +342,7 @@ const App: React.FC = () => {
                         />
                       </svg>
                     </a>
-
+)}
                     {/* Secondary GitHub Button */}
                     <a
                       href={project.github || "#"} // Make sure to add a 'github' property to your projects data array
