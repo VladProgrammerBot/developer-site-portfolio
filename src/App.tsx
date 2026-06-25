@@ -284,7 +284,7 @@ const App: React.FC = () => {
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                className="group relative bg-zinc-900 border border-zinc-800 overflow-hidden transition-all duration-500 hover:border-cyan-500 hover:shadow-2xl hover:shadow-cyan-500/20"
+                className="group relative flex flex-col bg-zinc-900 border border-zinc-800 overflow-hidden transition-all duration-500 hover:border-cyan-500 hover:shadow-2xl hover:shadow-cyan-500/20"
                 style={{
                   animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
                 }}
@@ -294,7 +294,7 @@ const App: React.FC = () => {
                   className={`absolute inset-0 bg-linear-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                 />
 
-                <div className="relative p-8">
+                <div className="relative flex flex-col h-full p-8">
                   <div className="text-6xl font-black text-zinc-800 mb-4 group-hover:text-cyan-500/20 transition-colors">
                     0{project.id}
                   </div>
@@ -318,7 +318,7 @@ const App: React.FC = () => {
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4 mt-8">
+                  <div className="flex flex-wrap items-center gap-4 mt-auto">
                     {/* Primary Live Project Button */}
                     {project.link && (
                       <a
