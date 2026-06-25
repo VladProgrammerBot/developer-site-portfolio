@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaTelegramPlane, FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { MdMailOutline, MdContentCopy } from "react-icons/md";
+import { MdMailOutline, MdContentCopy, MdCheck } from "react-icons/md";
 
 interface Project {
   id: number;
@@ -45,11 +45,14 @@ const App: React.FC = () => {
     email: "",
     message: "",
   });
-  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [formStatus, setFormStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
   const [formError, setFormError] = useState("");
+  const [emailCopied, setEmailCopied] = useState(false);
 
   const handleFormChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -58,7 +61,11 @@ const App: React.FC = () => {
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
+    ) {
       setFormError("Please fill out all fields.");
       setFormStatus("error");
       return;
@@ -80,7 +87,16 @@ const App: React.FC = () => {
       title: "Knowledge Base App",
       description:
         "A web application for storing text information that is easy to navigate regardless of scale.",
-      tech: ["TypeScript", "React", "Tailwind CSS", "Zustand", "Vite", "PostgreSQL", "Redis", "Express"],
+      tech: [
+        "TypeScript",
+        "React",
+        "Tailwind CSS",
+        "Zustand",
+        "Vite",
+        "PostgreSQL",
+        "Redis",
+        "Express",
+      ],
       gradient: "from-slate-800 via-zinc-900 to-black",
       link: "https://github.com/VladProgrammerBot/knowledge-base-app",
       github: "https://github.com/VladProgrammerBot/knowledge-base-app",
@@ -98,8 +114,7 @@ const App: React.FC = () => {
     {
       id: 3,
       title: "Multiplayer Physics Ball",
-      description:
-        "A minimalist high-speed real-time multiplayer maze game",
+      description: "A minimalist high-speed real-time multiplayer maze game",
       tech: ["HTML5 Canvas", "Node.js", "Express", "Socket.io"],
       gradient: "from-cyan-500 via-slate-500 to-blue-700",
       link: "https://github.com/VladProgrammerBot/multiplayer-physics-ball",
@@ -115,7 +130,7 @@ const App: React.FC = () => {
       // link: "https://github.com/VladProgrammerBot/e-commerce-platform",
       github: "https://github.com/VladProgrammerBot/e-commerce-platform",
     },
-     {
+    {
       id: 5,
       title: "Top-Maker",
       description:
@@ -153,7 +168,8 @@ const App: React.FC = () => {
       tech: ["TypeScript"],
       gradient: "from-emerald-500 via-teal-500 to-cyan-600",
       // link: "https://github.com/VladProgrammerBot/knowledge-management-desktop-app",
-      github: "https://github.com/VladProgrammerBot/knowledge-management-desktop-app",
+      github:
+        "https://github.com/VladProgrammerBot/knowledge-management-desktop-app",
     },
     {
       id: 9,
@@ -169,7 +185,7 @@ const App: React.FC = () => {
       id: 10,
       title: "Aliases Creator Script",
       description:
-        "Linux tool to create aliases fast by command like this: ca dev \"npm run dev\".",
+        'Linux tool to create aliases fast by command like this: ca dev "npm run dev".',
       tech: ["Shell"],
       gradient: "from-emerald-500 via-lime-500 to-cyan-500",
       // link: "https://github.com/VladProgrammerBot/aliases-creator-script",
@@ -178,8 +194,7 @@ const App: React.FC = () => {
     {
       id: 11,
       title: "Pi Calculation Script",
-      description:
-        "A JavaScript algorithm that computes π from zero.",
+      description: "A JavaScript algorithm that computes π from zero.",
       tech: ["HTML", "JavaScript"],
       gradient: "from-slate-500 via-stone-500 to-zinc-700",
       // link: "https://github.com/VladProgrammerBot/pi-calculation-script",
@@ -328,23 +343,23 @@ const App: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group/btn inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold px-5 py-2.5 transition-all duration-300 shadow-lg shadow-cyan-500/10 hover:shadow-cyan-400/30 transform hover:-translate-y-0.5"
-                    >
-                      <span>View Demo</span>
-                      <svg
-                        className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        viewBox="0 0 24 24"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                        />
-                      </svg>
-                    </a>
-)}
+                        <span>View Demo</span>
+                        <svg
+                          className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                          />
+                        </svg>
+                      </a>
+                    )}
                     {/* Secondary GitHub Button */}
                     <a
                       href={project.github || "#"} // Make sure to add a 'github' property to your projects data array
@@ -436,47 +451,11 @@ const App: React.FC = () => {
             <div className="rounded-3xl border border-zinc-800 bg-zinc-950/70 p-8 text-left">
               <h3 className="text-3xl font-bold mb-4 text-white">Contact me</h3>
               <p className="text-gray-400 leading-relaxed">
-                Want to build something together? Send a short message using the form, or copy my email if you prefer direct contact.
+                Want to build something together? Send a short message using the
+                form, or copy my email if you prefer direct contact.
               </p>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {[
-                  {
-                    title: "Email",
-                    icon: <MdMailOutline className="w-5 h-5 text-cyan-400" />,
-                    link: "mailto:garbuz.vlada4@gmail.com",
-                  },
-                  {
-                    title: "Copy Email",
-                    icon: <MdContentCopy className="w-5 h-5 text-cyan-400" />,
-                    isButton: true,
-                    onClick: () => navigator.clipboard.writeText("garbuz.vlada4@gmail.com"),
-                  },
-                ].map((item, idx) =>
-                  item.isButton ? (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={item.onClick}
-                      className="inline-flex items-center justify-center gap-2 rounded-2xl border border-zinc-800 px-5 py-3 text-gray-300 transition-all hover:border-cyan-500 hover:text-cyan-400"
-                    >
-                      {item.icon}
-                      {item.title}
-                    </button>
-                  ) : (
-                    <a
-                      key={idx}
-                      href={item.link}
-                      className="inline-flex items-center justify-center gap-2 rounded-2xl border border-zinc-800 px-5 py-3 text-gray-300 transition-all hover:border-cyan-500 hover:text-cyan-400"
-                    >
-                      {item.icon}
-                      <span className="font-mono text-cyan-400">{item.title}</span>
-                    </a>
-                  )
-                )}
-              </div>
-
-              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              <div className="mt-4 flex flex-wrap gap-3">
                 {[
                   {
                     title: "GitHub",
@@ -493,17 +472,38 @@ const App: React.FC = () => {
                     icon: <FaTelegramPlane className="w-5 h-5 text-cyan-400" />,
                     link: "https://t.me/minmax34",
                   },
+                  {
+                    title: "Email",
+                    icon: <MdMailOutline className="w-5 h-5 text-cyan-400" />,
+                    link: "mailto:garbuz.vlada4@gmail.com",
+                  },
                 ].map((item, idx) => (
                   <a
                     key={idx}
                     href={item.link}
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-zinc-800 px-5 py-3 text-gray-300 transition-all hover:border-cyan-500 hover:text-cyan-400"
+                    className="flex flex-1 w-fit items-center justify-center gap-2 rounded-2xl border border-zinc-800 px-5 py-3 text-gray-300 transition-all hover:border-cyan-500 hover:text-cyan-400"
                   >
                     {item.icon}
                     {item.title}
                   </a>
                 ))}
               </div>
+              <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard.writeText("garbuz.vlada4@gmail.com");
+                  setEmailCopied(true);
+                  setTimeout(() => setEmailCopied(false), 2000);
+                }}
+                className="inline-flex mt-4 items-center justify-center w-full cursor-pointer gap-2 rounded-2xl border border-zinc-800 px-5 py-3 text-gray-300 transition-all hover:border-cyan-500 hover:text-cyan-400"
+              >
+                {emailCopied ? (
+                  <MdCheck className="w-5 h-5 text-emerald-400" />
+                ) : (
+                  <MdContentCopy className="w-5 h-5 text-cyan-400" />
+                )}
+                {emailCopied ? "Copied!" : "Copy Email"}
+              </button>
             </div>
 
             <form
@@ -550,7 +550,9 @@ const App: React.FC = () => {
 
               <div className="mt-6 flex flex-col gap-4">
                 {formStatus === "success" && (
-                  <p className="text-emerald-400">Thanks! Your message is ready to send.</p>
+                  <p className="text-emerald-400">
+                    Thanks! Your message is ready to send.
+                  </p>
                 )}
                 {formStatus === "error" && formError && (
                   <p className="text-rose-400">{formError}</p>
@@ -565,8 +567,6 @@ const App: React.FC = () => {
               </div>
             </form>
           </div>
-
-          
 
           {/* Footer */}
           <div className="border-t border-zinc-800 pt-8">
