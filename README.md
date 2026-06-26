@@ -4,6 +4,10 @@ A modern personal portfolio built with React, TypeScript, Vite, and Tailwind CSS
 
 This site showcases selected projects, technical skills, and contact links with a polished dark UI, animated hero section, and responsive layout.
 
+Demo: https://
+
+![demo](./public/demo.gif)
+
 ## Features
 
 - Responsive portfolio layout for desktop and mobile

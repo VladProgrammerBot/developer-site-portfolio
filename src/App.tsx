@@ -98,7 +98,7 @@ const App: React.FC = () => {
         "Express",
       ],
       gradient: "from-slate-800 via-zinc-900 to-black",
-      link: "https://github.com/VladProgrammerBot/knowledge-base-app",
+      link: "https://strukt.onrender.com",
       github: "https://github.com/VladProgrammerBot/knowledge-base-app",
     },
     {
@@ -108,7 +108,7 @@ const App: React.FC = () => {
         "A modern React weather dashboard built with SCSS and WeatherAPI for real-time weather monitoring and hourly forecasts.",
       tech: ["React", "JavaScript", "SCSS"],
       gradient: "from-sky-500 via-blue-500 to-indigo-600",
-      link: "https://github.com/VladProgrammerBot/weather-app",
+      link: "https://vladprogrammerbot.github.io/weather-app",
       github: "https://github.com/VladProgrammerBot/weather-app",
     },
     {
@@ -117,7 +117,7 @@ const App: React.FC = () => {
       description: "A minimalist high-speed real-time multiplayer maze game",
       tech: ["HTML5 Canvas", "Node.js", "Express", "Socket.io"],
       gradient: "from-cyan-500 via-slate-500 to-blue-700",
-      link: "https://github.com/VladProgrammerBot/multiplayer-physics-ball",
+      link: "https://drift-game.onrender.com",
       github: "https://github.com/VladProgrammerBot/multiplayer-physics-ball",
     },
     {
