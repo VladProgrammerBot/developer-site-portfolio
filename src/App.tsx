@@ -40,46 +40,7 @@ const App: React.FC = () => {
     };
   }, []);
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [formStatus, setFormStatus] = useState<
-    "idle" | "sending" | "success" | "error"
-  >("idle");
-  const [formError, setFormError] = useState("");
   const [emailCopied, setEmailCopied] = useState(false);
-
-  const handleFormChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (
-      !formData.name.trim() ||
-      !formData.email.trim() ||
-      !formData.message.trim()
-    ) {
-      setFormError("Please fill out all fields.");
-      setFormStatus("error");
-      return;
-    }
-
-    setFormError("");
-    setFormStatus("sending");
-
-    // Replace this with your backend endpoint or form service URL later.
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
-    setFormStatus("success");
-    setFormData({ name: "", email: "", message: "" });
-  };
 
   const projects: Project[] = [
     {
@@ -505,9 +466,9 @@ const App: React.FC = () => {
                 {emailCopied ? "Copied!" : "Copy Email"}
               </button>
             </div>
-
             <form
-              onSubmit={handleFormSubmit}
+              action="https://formspree.io/f/mbdvoylj"
+              method="POST"
               className="rounded-3xl border border-zinc-800 bg-zinc-950/70 p-8"
             >
               <div className="space-y-6">
@@ -516,8 +477,6 @@ const App: React.FC = () => {
                   <input
                     type="text"
                     name="name"
-                    value={formData.name}
-                    onChange={handleFormChange}
                     placeholder="Your name"
                     className="mt-2 w-full rounded-2xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white outline-none focus:border-cyan-500"
                   />
@@ -528,8 +487,6 @@ const App: React.FC = () => {
                   <input
                     type="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleFormChange}
                     placeholder="you@example.com"
                     className="mt-2 w-full rounded-2xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white outline-none focus:border-cyan-500"
                   />
@@ -539,8 +496,6 @@ const App: React.FC = () => {
                   <span className="text-sm text-gray-400">Message</span>
                   <textarea
                     name="message"
-                    value={formData.message}
-                    onChange={handleFormChange}
                     placeholder="Tell me about your project"
                     rows={5}
                     className="mt-2 w-full rounded-2xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white outline-none focus:border-cyan-500"
@@ -549,20 +504,11 @@ const App: React.FC = () => {
               </div>
 
               <div className="mt-6 flex flex-col gap-4">
-                {formStatus === "success" && (
-                  <p className="text-emerald-400">
-                    Thanks! Your message is ready to send.
-                  </p>
-                )}
-                {formStatus === "error" && formError && (
-                  <p className="text-rose-400">{formError}</p>
-                )}
-
                 <button
                   type="submit"
                   className="inline-flex items-center justify-center rounded-2xl bg-cyan-500 px-6 py-3 font-bold text-zinc-950 transition-all hover:bg-cyan-400"
                 >
-                  {formStatus === "sending" ? "Sending..." : "Send Message"}
+                  Send Message
                 </button>
               </div>
             </form>
