@@ -6,7 +6,7 @@ This site showcases selected projects, technical skills, and contact links with 
 
 Demo: https://
 
-![demo](./public/demo.gif)
+![demo](./demo.gif)
 
 ## Features
 
