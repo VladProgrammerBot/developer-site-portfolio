@@ -4,8 +4,7 @@ A modern personal portfolio built with React, TypeScript, Vite, and Tailwind CSS
 
 This site showcases selected projects, technical skills, and contact links with a polished dark UI, animated hero section, and responsive layout.
 
-Demo: https://
-
+Demo: https://vladprogrammerbot.github.io/developer-site-portfolio
 ![demo](./demo.gif)
 
 ## Features
