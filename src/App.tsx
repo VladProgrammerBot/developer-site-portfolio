@@ -21,6 +21,7 @@ interface Skill {
 const App: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -31,12 +32,34 @@ const App: React.FC = () => {
       setScrollY(window.scrollY);
     };
 
+    const updateActiveSection = () => {
+      const sections = Array.from(document.querySelectorAll<HTMLElement>("section[id]"));
+      if (sections.length === 0) return;
+
+      const currentPosition = window.scrollY + 180;
+      let currentId = "hero";
+
+      sections.forEach((section) => {
+        if (section.offsetTop <= currentPosition) {
+          currentId = section.id;
+        }
+      });
+
+      setActiveSection(currentId);
+    };
+
+    updateActiveSection();
+
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", updateActiveSection);
+    window.addEventListener("resize", updateActiveSection);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
     };
   }, []);
 
@@ -213,8 +236,41 @@ const App: React.FC = () => {
         }}
       />
 
+      <div className="hidden lg:block fixed top-4 left-1/2 z-50 -translate-x-1/2">
+        <div className="flex flex-wrap items-center gap-3 rounded-full border border-white/10 bg-black/60 px-3 py-3 backdrop-blur-xl shadow-[0_0_30px_rgba(6,182,212,0.12)]">
+          {[
+            { label: "hero", id: "hero" },
+            { label: "projects", id: "projects" },
+            { label: "dev stack", id: "dev-stack" },
+            { label: "contact", id: "contact" },
+          ].map((item) => {
+            const isActive = activeSection === item.id;
+
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => scrollToSection(item.id)}
+                className={`group relative overflow-hidden rounded-full border px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer ${
+                  isActive
+                    ? "border-cyan-400 bg-cyan-500 text-zinc-950 shadow-[0_0_20px_rgba(34,211,238,0.35)]"
+                    : "border-cyan-500/20 bg-zinc-900/80 text-cyan-300 hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-white hover:shadow-[0_0_20px_rgba(34,211,238,0.25)]"
+                }`}
+              >
+                <span className="relative z-10 transition-transform duration-300 group-hover:-translate-y-0.5">
+                  {item.label}
+                </span>
+                {!isActive && (
+                  <span className="absolute inset-0 bg-linear-to-r from-cyan-500/0 via-cyan-500/20 to-cyan-500/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                )}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12">
+      <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 md:px-12">
         <div className="max-w-7xl w-full">
           <div
             className="transform transition-all duration-1000"
@@ -245,22 +301,7 @@ const App: React.FC = () => {
               finding the shortest path to an effective solution.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-12">
-              {[
-                { label: "projects", id: "projects" },
-                { label: "dev stack", id: "dev-stack" },
-                { label: "contact", id: "contact" },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => scrollToSection(item.id)}
-                  className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-300 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/20 hover:text-white"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
+            <div className="mb-12" />
 
             {/* Scroll indicator */}
             <div className="absolute bottom- left-1/2 transform -translate-x-1/2 animate-bounce">
