@@ -42,6 +42,13 @@ const App: React.FC = () => {
 
   const [emailCopied, setEmailCopied] = useState(false);
 
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   const projects: Project[] = [
     {
       id: 1,
@@ -232,11 +239,28 @@ const App: React.FC = () => {
               Fullstack Developer
             </h2>
 
-            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mb-12 font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mb-8 font-light leading-relaxed">
               Who is driven by results and problem-solving. I build end-to-end
               web applications, covering UI, backend, and deployment. I focus on
               finding the shortest path to an effective solution.
             </p>
+
+            <div className="flex flex-wrap gap-3 mb-12">
+              {[
+                { label: "projects", id: "projects" },
+                { label: "dev stack", id: "dev-stack" },
+                { label: "contact", id: "contact" },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => scrollToSection(item.id)}
+                  className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-300 transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/20 hover:text-white"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
 
             {/* Scroll indicator */}
             <div className="absolute bottom- left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -249,7 +273,7 @@ const App: React.FC = () => {
       </section>
 
       {/* Projects Section */}
-      <section className="relative py-32 px-6 md:px-12">
+      <section id="projects" className="relative py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20">
             <h2 className="text-5xl md:text-7xl font-black mb-4 tracking-tighter">
@@ -353,7 +377,7 @@ const App: React.FC = () => {
       </section>
 
       {/* Skills Section */}
-      <section className="relative py-32 px-6 md:px-12 bg-zinc-900/50">
+      <section id="dev-stack" className="relative py-32 px-6 md:px-12 bg-zinc-900/50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20">
             <h2 className="text-5xl md:text-7xl font-black mb-4 tracking-tighter">
@@ -397,7 +421,7 @@ const App: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="relative py-32 px-6 md:px-12">
+      <section id="contact" className="relative py-32 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter">
             Let's Build <span className="text-cyan-500">Something</span>
